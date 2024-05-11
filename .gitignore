@@ -9,3 +9,5 @@ go-spacemesh/node_data
 
 dagu/*
 !dagu/dags/*
+
+postcli
