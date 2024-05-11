@@ -1,0 +1,64 @@
+# Generate latest build and push it to dockerhub on push to develop branch.
+# NOTE: This workflow does not include any tests, nor any dependencies, since bors guarantees
+# that only code that passes all tests is ever pushed to develop.
+name: Push to Dockerhub
+run-name: Pushing ${{ github.ref_name }} to Dockerhub
+env:
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+on:
+  push:
+    branches:
+      - develop
+    tags:
+      - '*'
+  workflow_dispatch:
+    inputs:
+      custom_image_tag:
+        description: 'A custom image tag'
+        default: ''
+jobs:
+  dockerpush:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4
+      with:
+        ssh-key: ${{ secrets.GH_ACTION_PRIVATE_KEY }}
+
+    - uses: extractions/netrc@v2
+      with:
+        machine: github.com
+        username: ${{ secrets.GH_ACTION_TOKEN_USER }}
+        password: ${{ secrets.GH_ACTION_TOKEN }}
+      if: vars.GOPRIVATE
+    
+    - name: Build docker images
+      run: |
+        export VERSION="${{ github.ref_name }}"
+        make dockerbuild-go
+        make dockerbuild-bs
+
+    - name: Push docker images to dockerhub
+      run: |
+        make dockerpush-only
+        make dockerpush-bs-only
+
+    - name: Push docker images to dockerhub
+      if: inputs.custom_image_tag
+      run: |
+        export DOCKER_IMAGE_VERSION="${{ inputs.custom_image_tag }}"
+        make dockerpush-only
+        make dockerpush-bs-only
+
+    - name: Push docker images with version tag to dockerhub
+      if: startsWith(github.ref, 'refs/tags/')
+      run: |
+        export DOCKER_IMAGE_VERSION="${{ github.ref_name }}"
+        make dockerpush-only
+        make dockerpush-bs-only
+
+        export DOCKER_IMAGE_REPO="go-spacemesh"
+        make dockerpush-only
+        make dockerpush-bs-only

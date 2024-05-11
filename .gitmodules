@@ -1,0 +1,3 @@
+[submodule "go-spacemesh"]
+	path = go-spacemesh
+	url = https://github.com/nguyen0096/go-spacemesh.git

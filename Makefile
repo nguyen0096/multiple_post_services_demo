@@ -14,7 +14,6 @@ pkg-dagu:
 	rm dagu_$(DAGU_VERSION)_linux_amd64.tar.gz
 .PHONY: pkg-dagu
 
-
 pkg-post-cli:
 	@echo "Cleaning ./postcli"
 	@rm -rf postcli && mkdir postcli
@@ -25,3 +24,7 @@ pkg-post-cli:
 	unzip postcli-macOS_ARM64.zip && \
 	rm postcli-macOS_ARM64.zip
 .PHONY: pkg-post-cli
+
+cfg-spacemesh:
+	@cp -r ./example/go-spacemesh/* ./go-spacemesh/
+.PHONY: cfg-spacemesh
