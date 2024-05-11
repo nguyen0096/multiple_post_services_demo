@@ -6,3 +6,6 @@ dagu/pids
 dagu/dagu_script*
 post/
 go-spacemesh/node_data
+
+dagu/*
+!dagu/dags/*
