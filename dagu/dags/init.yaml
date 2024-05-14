@@ -50,42 +50,42 @@ steps:
       - get commitment atx
       - diskA_post2
   - name: copy identity diskE_post1
-    command: cp ../post/diskE_post1/identity.key ../node_data/identities/diskE_post1.key
+    command: cp ../post/diskE_post1/identity.key ../go-spacemesh/node_data/identities/diskE_post1.key
     depends:
       - diskE_post1
   - name: copy identity diskD_post1
-    command: cp ../post/diskD_post1/identity.key ../node_data/identities/diskD_post1.key
+    command: cp ../post/diskD_post1/identity.key ../go-spacemesh/node_data/identities/diskD_post1.key
     depends:
       - diskD_post1
   - name: copy identity diskC_post3
-    command: cp ../post/diskC_post3/identity.key ../node_data/identities/diskC_post3.key
+    command: cp ../post/diskC_post3/identity.key ../go-spacemesh/node_data/identities/diskC_post3.key
     depends:
       - diskC_post3
   - name: copy identity diskC_post2
-    command: cp ../post/diskC_post2/identity.key ../node_data/identities/diskC_post2.key
+    command: cp ../post/diskC_post2/identity.key ../go-spacemesh/node_data/identities/diskC_post2.key
     depends:
       - diskC_post2
   - name: copy identity diskC_post1
-    command: cp ../post/diskC_post1/identity.key ../node_data/identities/diskC_post1.key
+    command: cp ../post/diskC_post1/identity.key ../go-spacemesh/node_data/identities/diskC_post1.key
     depends:
       - diskC_post1
   - name: copy identity diskB_post3
-    command: cp ../post/diskB_post3/identity.key ../node_data/identities/diskB_post3.key
+    command: cp ../post/diskB_post3/identity.key ../go-spacemesh/node_data/identities/diskB_post3.key
     depends:
       - diskB_post3
   - name: copy identity diskB_post2
-    command: cp ../post/diskB_post2/identity.key ../node_data/identities/diskB_post2.key
+    command: cp ../post/diskB_post2/identity.key ../go-spacemesh/node_data/identities/diskB_post2.key
     depends:
       - diskB_post2
   - name: copy identity diskB_post1
-    command: cp ../post/diskB_post1/identity.key ../node_data/identities/diskB_post1.key
+    command: cp ../post/diskB_post1/identity.key ../go-spacemesh/node_data/identities/diskB_post1.key
     depends:
       - diskB_post1
   - name: copy identity diskA_post2
-    command: cp ../post/diskA_post2/identity.key ../node_data/identities/diskA_post2.key
+    command: cp ../post/diskA_post2/identity.key ../go-spacemesh/node_data/identities/diskA_post2.key
     depends:
       - diskA_post2
   - name: copy identity diskA_post1
-    command: cp ../post/diskA_post1/identity.key ../node_data/identities/diskA_post1.key
+    command: cp ../post/diskA_post1/identity.key ../go-spacemesh/node_data/identities/diskA_post1.key
     depends:
       - diskA_post1

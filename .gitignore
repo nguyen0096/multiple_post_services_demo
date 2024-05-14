@@ -11,3 +11,6 @@ dagu/*
 !dagu/dags/*
 
 postcli
+node.log
+
+.vscode
