@@ -1,1 +1,0 @@
-delete from activesets where epoch < 12;
