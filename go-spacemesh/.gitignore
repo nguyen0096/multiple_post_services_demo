@@ -39,3 +39,4 @@ systest/vendor/*
 .run/*
 
 config.json
+node_data
