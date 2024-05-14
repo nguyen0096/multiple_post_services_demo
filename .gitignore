@@ -14,3 +14,5 @@ postcli
 node.log
 
 .vscode
+node_data
+.DS_Store

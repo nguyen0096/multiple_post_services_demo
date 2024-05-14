@@ -40,3 +40,4 @@ systest/vendor/*
 
 config.json
 node_data
+build
